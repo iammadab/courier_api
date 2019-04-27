@@ -17,11 +17,16 @@ function createShipmentRoute(req, res){
 	createShipmentValidator(req.body)
 		.catch(sendBadRequestError)
 		.then(() => createShipmentFn(req.body))
+		.then(populateShipment)
 		.then(createSuccessResponse)
 		.then(response => res.status(200).json(response))
 
 	function sendBadRequestError(errors){
 		res.sendError(400, "BAD_REQUEST_BODY", errors)
+	}
+
+	function populateShipment(shipment){
+		return shipment.populate("parcels")
 	}
 
 	function createSuccessResponse(shipment){
