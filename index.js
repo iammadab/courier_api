@@ -17,9 +17,11 @@ mongoose.connect("mongodb://localhost/courier", { useNewUrlParser: true })
 
 //Import routers
 const Parcel = require("./resources/parcel")
+const Shipment = require("./resources/shipment")
 
 //Attack the routers to routes
 app.use("/api/parcel", Parcel)
+app.use("/api/shipment", Shipment)
 
 app.listen(PORT, () => {
 	console.log("Application listening at port " + PORT)
