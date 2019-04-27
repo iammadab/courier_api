@@ -16,9 +16,9 @@ The Shipment model describe an order, it has the destination, distance and a lis
 
 ## Actions
 * Parcel
-  * Create a parcel
-  * Fetch a parcel based on id
+  * **POST /api/parcels** Create a parcel
+  * **GET /api/parcels/:parcelId** Fetch a parcel based on id
 * Shipment
-  * Create a shipment
-  * Get a shipment based on id
-  * Get all the shipments
+  * **POST /api/shipments** Create a shipment
+  * **GET /api/shipments/:shipmentId" Get a shipment based on id
+  * **GET /api/shipments** Get all the shipments
