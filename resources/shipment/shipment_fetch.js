@@ -3,9 +3,9 @@ const { createValidator } = require("../../lib/validator")
 
 const fetchShipmentValidator = createValidator("shipmentId.string")
 
-function shipmentFetchFn({ id }){
-	return Shipment.find({ _id: id })
-				   .populate("parcel")
+function shipmentFetchFn({ shipmentId }){
+	return Shipment.find({ _id: shipmentId })
+				   .populate("parcels")
 }
 
 function shipmentFetchRoute(req, res){
