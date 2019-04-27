@@ -1,8 +1,9 @@
 const express = require("express")
 const parcelRouter = express.Router()
 
-parcelRouter.get("/", function(req, res, next){
-	console.log("Welcome to the parcel router")
-})
+//Import parcel functionalities
+const createParcel = require("./parcel_create")
+
+parcelRouter.post("/", createParcel)
 
 module.exports = parcelRouter
