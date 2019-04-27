@@ -26,8 +26,8 @@ else
 
 
 //Import routers
-const Parcel = require("./resources/parcel")
-const Shipment = require("./resources/shipment")
+const Parcel = require("./resources/parcels")
+const Shipment = require("./resources/shipments")
 
 //Attack the routers to routes
 app.use("/api/parcel", Parcel)
