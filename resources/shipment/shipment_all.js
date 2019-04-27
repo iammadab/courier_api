@@ -1,14 +1,10 @@
 const Shipment = require("./shipment_model")
 
-function fetchAllShipmentFn(){
-	return Shipment.find({})
-				   .populate("parcels")
-}
-
 function fetchAllShipmentRoute(req, res){
+	
 	fetchAllShipmentFn()
 		.then(createSuccessResponse)
-		.then(response => res.status(200).json(response))
+		.then(sendSuccessResponse)
 
 	function createSuccessResponse(shipments){
 		return {
@@ -17,6 +13,15 @@ function fetchAllShipmentRoute(req, res){
 			shipments: shipments
 		}
 	}
+
+	function sendSuccessResponse(response){
+		res.status(200).json(response)
+	}
+}
+
+function fetchAllShipmentFn(){
+	return Shipment.find({})
+				   .populate("parcels")
 }
 
 module.exports = {
