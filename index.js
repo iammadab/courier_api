@@ -12,10 +12,18 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(lazyError())
 
-//Connect to mongodh
-mongoose.connect("mongodb://localhost/courier", { useNewUrlParser: true })
-	    .then(() => { console.log("Connected to db") })
-	    .catch(err => { console.log("Error connecting to db", err) })
+//Connect to mongodb
+if(!process.env.PORT)
+	mongoose.connect("mongodb://localhost/courier", { useNewUrlParser: true })
+		    .then(() => { console.log("Connected to db") })
+		    .catch(err => { console.log("Error connecting to db", err) })
+else
+	mongoose.connect("mongodb+srv://Wisdom:DShX5RERA6OTTG0O@cluster0-zh4ss.mongodb.net/courier?retryWrites=true", {
+		useNewUrlParser: true
+	})
+	.then(() => { console.log("Connected to online db") })
+	.catch(err => { console.log("Error connection to online db" , err)});
+
 
 //Import routers
 const Parcel = require("./resources/parcel")
