@@ -1,4 +1,4 @@
-const lazyError = require("lazy-error")
+dconst lazyError = require("lazy-error")
 const Shipment = require("./shipment_model")
 const { createValidator } = require("../../lib/validator")
 
